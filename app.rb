@@ -8,16 +8,16 @@ get('/') do
   erb(:index)
 end
 
-get('dealerships/new') do
+get('/dealerships/new') do
   erb(:dealerships_form)
 end
 
-get('dealerships') do
+get('/dealerships') do
   @dealerships = Dealership.all()
   erb(:dealerships)
 end
 
-post('dealerships') do
+post('/dealerships') do
   name = params.fetch('name')
   Dealership.new(name).save()
   @dealerships = Dealership.all()
